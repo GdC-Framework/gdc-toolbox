@@ -1,7 +1,7 @@
 help:
 	@egrep "^#" Makefile
 
-start:
+prod:
 	yarn build
 	node .output/server/index.mjs
 
@@ -19,6 +19,11 @@ docker-build:
 du: docker-up
 docker-up:
 	docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
+
+# target: prod-docker-up|pdu                          - Start docker containers and run prod
+pdu: docker-up
+prod-docker-up:
+	docker compose -f docker-compose.yml up -d
 
 # target: docker-down|dd                              - Stop docker containers
 dd: docker-down
