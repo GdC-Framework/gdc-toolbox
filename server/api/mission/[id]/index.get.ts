@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
   const dbClient: Db = event.context.db
   const collection = dbClient.collection<Mission>(
-    runtimeConfig.MONGO_COLLECTION_NAME_NAME
+    runtimeConfig.MONGO_COLLECTION_NAME
   )
   const datas = await collection.findOne({ _id: new ObjectId(missionId) })
 
