@@ -98,7 +98,7 @@ export default defineEventHandler(async (event) => {
   // Mission already exist ?
   report.versionAlreadyExist = await checkIfVersionAlreadyExist(
     event.context.db,
-    runtimeConfig.MONGO_COLLECTION,
+    runtimeConfig.MONGO_COLLECTION_NAME,
     filenameWithoutExt
   )
 
