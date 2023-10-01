@@ -170,8 +170,8 @@ docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
 or use Makefile commands
 
 ```sh
-make build
-make dev
+make db
+make du
 ```
 
 ## Frequently Asked Questions
