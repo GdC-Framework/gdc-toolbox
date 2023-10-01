@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   const dbClient: Db = event.context.db
 
   const result = await dbClient
-    .collection<Mission>(runtimeConfig.MONGO_COLLECTION)
+    .collection<Mission>(runtimeConfig.MONGO_COLLECTION_NAME)
     .updateOne(
       { _id: new ObjectId(missionId) },
       { $set: { 'missionIsPlayable.val': parsedBody.isPlayable } },

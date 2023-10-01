@@ -16,9 +16,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    MONGO_URL: resolve(process.env.NUXT_MONGO_URL!),
-    MONGO_NAME: 'gdc',
-    MONGO_COLLECTION: 'missions',
+    MONGO_URL: '',
+    MONGO_DB_NAME: 'gdc',
+    MONGO_COLLECTION_NAME: 'missions',
     PBO_MANAGER: '',
     UPLOAD_TEMP_DIR: resolve(process.env.TEMP_DIR!),
     MISSIONS_DIR: resolve(process.env.MISSIONS_DIR!),
