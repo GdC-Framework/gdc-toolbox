@@ -1,9 +1,9 @@
-somethingelse:
-	yarn build
-	node .output/server/index.mjs
-
 help:
 	@egrep "^#" Makefile
+
+start:
+	yarn build
+	node .output/server/index.mjs
 
 dev:
 	yarn dev
@@ -13,7 +13,7 @@ db: docker-build
 docker-build:
 	docker-compose -f docker-compose.yml -f docker-compose.debug.yml run --rm gdctoolbox sh -c "yarn"
 
-# target: docker-up|du                                - Start docker containers and run dev 
+# target: docker-up|du                                - Start docker containers and run dev
 du: docker-up
 docker-up:
 	docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
