@@ -11,9 +11,16 @@ dev:
 # target: docker-build|db                             - Start docker containers and install deps
 db: docker-build
 docker-build:
+	cp .sample-env .env
 	docker-compose -f docker-compose.yml -f docker-compose.debug.yml run --rm gdctoolbox sh -c "yarn"
+	echo 'dont forget to update the .env file '
 
 # target: docker-up|du                                - Start docker containers and run dev
 du: docker-up
 docker-up:
 	docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
+
+# target: docker-down|dd                              - Stop docker containers
+dd: docker-down
+docker-down:
+	docker compose down
