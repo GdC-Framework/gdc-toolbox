@@ -173,6 +173,11 @@ definePageMeta({
 .main-card {
   background: #ffffff88;
 }
+.darkmode {
+  .gdc-mission-side {
+    background: black;
+  }
+}
 
 .main-card:deep(.p-card-content) {
   padding: 0;
