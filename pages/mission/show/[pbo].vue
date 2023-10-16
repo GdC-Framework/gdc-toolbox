@@ -7,9 +7,9 @@
       </h1>
 
       <!--layout fluide + responsive-->
-      <div style="padding-bottom: 2rem">
-        <!--colonne gauche-->
-        <Splitter :layout="isSplitVertical ? 'vertical' : undefined">
+      <div style="padding-bottom: 2rem;">
+        <Splitter :layout="isSplitVertical ? 'vertical' : undefined" class="gdc-container" >
+          <!--colonne gauche-->
           <SplitterPanel :size="100 / 3" class="gdc-mission-side">
             <div class="gdc-mission-image">
               <img
@@ -158,7 +158,7 @@ definePageMeta({
 })
 </script>
 
-<style scoped>
+<style lang="scss">
 @media (min-width: 601px) {
   .gdc-mission-image img {
     max-height: 35vh;
@@ -207,4 +207,18 @@ definePageMeta({
 .gdc-mission-info ul li {
   margin-top: 1rem;
 }
+
+.darkmode {
+  .gdc-container {
+    &.p-splitter {
+      border-color: #404040;
+      background: #404040;
+      color: white;
+      .p-splitter-gutter {
+        background: #ba7e6a80;
+      }
+    }
+  }
+}
 </style>
+ 

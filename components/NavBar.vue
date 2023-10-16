@@ -21,6 +21,7 @@
     </template>
     <template #end>
       <AuthBar />
+      <DarkMode />
     </template>
   </Toolbar>
 </template>
@@ -33,6 +34,7 @@ import SplitButton from 'primevue/splitbutton'
 import type { MenuItem } from 'primevue/menuitem'
 
 const { isAuthenticated } = useAuth0()
+const darkmode = ref(false)
 
 const links: MenuItem[] = [
   { label: 'Liste des missions', to: '/mission/' },
@@ -47,5 +49,12 @@ const links: MenuItem[] = [
 <style>
 .p-toolbar {
   background: #ffffffcc;
+}
+.darkmode {
+  .p-toolbar {
+    background: #404040cc;
+    border: #404040cc;
+    /* background-color: rgba(75, 75, 75, );; */
+  }
 }
 </style>

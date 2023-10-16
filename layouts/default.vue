@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%; display: flex; flex-direction: column">
+  <div style="height: 100%; display: flex; flex-direction: column" :class="[isDark && 'darkmode']">
     <Toast />
     <ConfirmPopup />
     <DynamicDialog />
@@ -15,11 +15,14 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import Toast from 'primevue/toast'
 import ConfirmPopup from 'primevue/confirmpopup'
 import DynamicDialog from 'primevue/dynamicdialog'
 import Card from 'primevue/card'
+import {useDark} from '@vueuse/core'
+
+const isDark = useDark();
 </script>
 
 <style>
@@ -32,5 +35,12 @@ import Card from 'primevue/card'
 .container {
   background-color: transparent;
   box-shadow: none;
+}
+.darkmode {
+  background-color: rgba(75, 75, 75, .5);
+}
+.darkmode .p-card {
+  background-color: rgba(75, 75, 75, .5)!important;
+  color: white;
 }
 </style>

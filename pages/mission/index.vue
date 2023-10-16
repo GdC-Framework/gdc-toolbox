@@ -102,9 +102,9 @@
         <Column header="Titre" sortable field="missionTitle.val">
           <template #body="{ data }">
             <Skeleton v-if="!data" width="20rem" />
-            <span v-else-if="data?.missionTitle?.val" class="data">
+            <a v-else-if="data?.missionTitle?.val" class="data pointer" @click="callShowMission(data?.missionId)">
               {{ data.missionTitle.val }}
-            </span>
+            </a>
             <span v-else class="data-undefined"> Non renseigné </span>
           </template>
         </Column>
@@ -234,7 +234,7 @@ const { isAuthenticated, getAccessTokenSilently, getAccessTokenWithPopup } =
   useAuth0()
 
 const playableLoading = ref(false)
-const compacted = ref(false)
+const compacted = ref(true)
 const isFilterVisible = ref(false)
 const filters = ref<MissionFilters>({})
 
@@ -497,7 +497,7 @@ definePageMeta({
 })
 </script>
 
-<style>
+<style lang="scss">
 .data-undefined {
   /* font-style: italic; */
   color: var(--red-500);
@@ -535,6 +535,9 @@ h3 {
 .p-datatable .p-datatable-thead > tr > th {
   background: #f8f9fae5;
 }
+.p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+    border-width: 2px 1px 1px 1px;
+}
 
 .p-paginator,
 .p-datatable .p-sortable-column.p-highlight {
@@ -555,5 +558,51 @@ h3 {
 
 .main-card {
   background: #ffffff88;
+}
+
+.pointer{
+  cursor: pointer;
+}
+.darkmode {
+  .main-card {
+    background: #ffffff30;    
+  }
+
+  .p-datatable .p-datatable-header,
+  .p-datatable .p-datatable-thead > tr > th {
+    color: white;
+    background: #404040;
+    border-color: #ba7e6a80;
+  }
+
+  .p-paginator,
+  .p-datatable .p-sortable-column.p-highlight {
+    color: var(--primary-color);
+    background: #404040;
+    border-color: #ba7e6a80;
+  }
+
+  .p-paginator .p-paginator-element{
+    color: white;
+  }
+  
+  .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+    color: white;
+    background: #383838;
+    border-color: #ba7e6a80;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr:not(.p-highlight):hover {
+    background-color: #555555;
+    color: white;
+  }
+  .p-datatable .p-datatable-tbody > tr {
+    color: white;
+    background: #404040;
+    
+    > td {
+      border-color: #ba7e6a80;
+    }
+  }
 }
 </style>
