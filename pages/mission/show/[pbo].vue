@@ -158,7 +158,7 @@ definePageMeta({
 })
 </script>
 
-<style scoped>
+<style lang="scss">
 @media (min-width: 601px) {
   .gdc-mission-image img {
     max-height: 35vh;
@@ -207,12 +207,18 @@ definePageMeta({
 .gdc-mission-info ul li {
   margin-top: 1rem;
 }
-.darkmode .p-splitter {
-  background: #404040;
-  color: white;
-}
-.darkmode .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
-  background: #ba7e6a80;
+
+.darkmode {
+  .gdc-container {
+    &.p-splitter {
+      border-color: #404040;
+      background: #404040;
+      color: white;
+      .p-splitter-gutter {
+        background: #ba7e6a80;
+      }
+    }
+  }
 }
 </style>
  

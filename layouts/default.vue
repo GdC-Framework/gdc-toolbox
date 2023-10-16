@@ -20,7 +20,7 @@ import Toast from 'primevue/toast'
 import ConfirmPopup from 'primevue/confirmpopup'
 import DynamicDialog from 'primevue/dynamicdialog'
 import Card from 'primevue/card'
-import {useDark, useToggle} from '@vueuse/core'
+import {useDark} from '@vueuse/core'
 
 const isDark = useDark();
 </script>
@@ -37,6 +37,10 @@ const isDark = useDark();
   box-shadow: none;
 }
 .darkmode {
-  background-color: rgba(75, 75, 75, .5);;
+  background-color: rgba(75, 75, 75, .5);
+}
+.darkmode .p-card {
+  background-color: rgba(75, 75, 75, .5)!important;
+  color: white;
 }
 </style>

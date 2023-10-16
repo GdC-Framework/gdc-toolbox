@@ -497,7 +497,7 @@ definePageMeta({
 })
 </script>
 
-<style>
+<style lang="scss">
 .data-undefined {
   /* font-style: italic; */
   color: var(--red-500);

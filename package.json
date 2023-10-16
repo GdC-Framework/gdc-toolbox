@@ -22,6 +22,8 @@
     "mongodb": "^5.5.0",
     "primeicons": "^6.0.1",
     "primevue": "^3.29.1",
-    "sanitize-html": "^2.10.0"
+    "sanitize-html": "^2.10.0",
+    "sass": "^1.69.3",
+    "sass-loader": "^13.3.2"
   }
 }
