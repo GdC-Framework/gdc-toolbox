@@ -12,7 +12,7 @@ dev:
 db: docker-build
 docker-build:
 	cp -u .sample-env .env
-	docker-compose -f docker-compose.yml -f docker-compose.debug.yml run --rm gdctoolbox sh -c "yarn"
+	docker compose -f docker-compose.yml -f docker-compose.debug.yml run --rm gdctoolbox sh -c "yarn"
 	echo 'dont forget to update the .env file'
 
 # target: docker-up|du                                - Start docker containers and run dev
