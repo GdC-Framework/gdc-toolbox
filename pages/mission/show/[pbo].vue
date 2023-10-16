@@ -7,9 +7,9 @@
       </h1>
 
       <!--layout fluide + responsive-->
-      <div style="padding-bottom: 2rem">
-        <!--colonne gauche-->
-        <Splitter :layout="isSplitVertical ? 'vertical' : undefined">
+      <div style="padding-bottom: 2rem;">
+        <Splitter :layout="isSplitVertical ? 'vertical' : undefined" class="gdc-container" >
+          <!--colonne gauche-->
           <SplitterPanel :size="100 / 3" class="gdc-mission-side">
             <div class="gdc-mission-image">
               <img
@@ -173,11 +173,6 @@ definePageMeta({
 .main-card {
   background: #ffffff88;
 }
-.darkmode {
-  .gdc-mission-side {
-    background: black;
-  }
-}
 
 .main-card:deep(.p-card-content) {
   padding: 0;
@@ -212,4 +207,12 @@ definePageMeta({
 .gdc-mission-info ul li {
   margin-top: 1rem;
 }
+.darkmode .p-splitter {
+  background: #404040;
+  color: white;
+}
+.darkmode .p-splitter .p-splitter-gutter .p-splitter-gutter-handle {
+  background: #ba7e6a80;
+}
 </style>
+ 

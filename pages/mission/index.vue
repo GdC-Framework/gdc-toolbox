@@ -581,6 +581,10 @@ h3 {
     background: #404040;
     border-color: #ba7e6a80;
   }
+
+  .p-paginator .p-paginator-element{
+    color: white;
+  }
   
   .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
     color: white;
