@@ -17,6 +17,8 @@ import { useAuth0 } from '@auth0/auth0-vue'
 import Button from 'primevue/button'
 import SplitButton from 'primevue/splitbutton'
 
+const runtimeConfig = useRuntimeConfig();
+
 const {
   loginWithRedirect,
   logout: logoutWithRedirect,
@@ -25,11 +27,13 @@ const {
 } = useAuth0()
 
 const login = () => {
-  localStorage.setItem('ROUTE_BEFORE_REDIRECT', window.location.pathname)
-  loginWithRedirect()
+  const authorizationParams = {
+    audience: runtimeConfig.public.AUTH0_API_IDENTIFIER,
+    redirect_uri: `${window.location.origin}/auth`,
+  }
+  loginWithRedirect({ authorizationParams })
 }
 const logout = () => {
-  localStorage.setItem('ROUTE_BEFORE_REDIRECT', window.location.pathname)
-  logoutWithRedirect({ returnTo: window.location.origin + '/auth' })
+  logoutWithRedirect({ returnTo: `${window.location.origin}/auth` })
 }
 </script>

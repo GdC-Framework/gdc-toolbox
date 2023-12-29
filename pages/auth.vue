@@ -1,19 +1,24 @@
-<template></template>
+<template>
+  <Card v-if="route.query.error" style="background-color: #ffffff88">
+    <template #content>
+      <ErrorBox
+        :error="`${route.query.error}: ${route.query.error_description}`"
+      >
+        <Button class="w3-button gdc-color-tonic" @click="goHome">
+          Retourner au menu principal
+        </Button>
+      </ErrorBox>
+    </template>
+  </Card>
+</template>
 
 <script lang="ts" setup>
-const { replace, getRoutes } = useRouter()
-replace('/')
+const { replace } = useRouter()
 
-// FIXME: Kind of useless because somthing (Auth0 ?) keeps redirecting to /
+const route = useRoute();
+if (!route.query.error) {
+  replace('/')
+}
 
-// const item = localStorage.getItem('ROUTE_BEFORE_REDIRECT')
-// const routes = getRoutes()
-// if (item && routes.find(({ path }) => path === item)) {
-//   console.log('Redirecting to', item)
-
-//   replace(item)
-// } else {
-//   console.log('Redirecting to', '/')
-//   replace('/')
-// }
+const goHome = () => replace('/');
 </script>

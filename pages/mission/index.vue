@@ -365,10 +365,11 @@ const callShowMission = (missionId: string) => {
  */
 const getAccessToken = async () => {
   let accessToken = undefined
-  const authorizationParams = {
-    scope: 'update:mission',
-  }
   // Trying to get auth token without user interaction
+  const authorizationParams = {
+    audience: runtimeConfig.public.AUTH0_API_IDENTIFIER,
+    redirect_uri: `${window.location.origin}/auth`,
+  }
   try {
     accessToken = await getAccessTokenSilently({ authorizationParams })
   } catch (error) {

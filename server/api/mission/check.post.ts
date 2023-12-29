@@ -1,6 +1,6 @@
 import { spawnSync } from 'child_process'
 import dayjs from 'dayjs'
-import { writeFile, unlink, rm, stat, readFile, mkdir } from 'fs/promises'
+import { writeFile, rm, stat, readFile, mkdir } from 'fs/promises'
 import { resolve } from 'path'
 import {
   addMissionToPool,
@@ -29,6 +29,8 @@ const defaultErrorConfig: DefaultCheckConfiguration[] = [
 const runtimeConfig = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
+  await checkUserPermission(event, 'add:mission');
+
   const body = await readMultipartFormData(event)
 
   // Just make sure nothing's wrong

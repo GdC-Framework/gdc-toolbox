@@ -3,6 +3,8 @@ import { Db, ObjectId } from 'mongodb'
 const runtimeConfig = useRuntimeConfig()
 
 export default defineEventHandler(async (event) => {
+  await checkUserPermission(event, 'update:mission');
+
   const missionId: string | undefined = event.context.params?.id
   if (!missionId) {
     throw createError('Mission id is required')

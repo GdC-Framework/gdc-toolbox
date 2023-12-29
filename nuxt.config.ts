@@ -28,6 +28,7 @@ export default defineNuxtConfig({
       BASE_TITLE: 'GDC Toolbox',
       AUTH0_DOMAIN: 'gdc.eu.auth0.com',
       AUTH0_CLIENT_ID: '',
+      AUTH0_API_IDENTIFIER: '',
     },
   },
 

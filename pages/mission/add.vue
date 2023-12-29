@@ -159,7 +159,8 @@ const asyncConfirm = (
 const getAccessToken = async () => {
   let accessToken = undefined
   const authorizationParams = {
-    scope: 'add:mission',
+    audience: runtimeConfig.public.AUTH0_API_IDENTIFIER,
+    redirect_uri: `${window.location.origin}/auth`,
   }
   // Trying to get auth token without user interaction
   try {
