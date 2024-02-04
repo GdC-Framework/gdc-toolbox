@@ -134,8 +134,7 @@ git clone <https://github.com/Tanin69/gdc-toolbox>
 #### Install modules
 
 ```sh
-npm i -g yarn
-yarn install --frozen-lockfile
+npm ci
 ```
 
 ### Run the server
@@ -143,7 +142,7 @@ yarn install --frozen-lockfile
 #### With Node
 
 ```sh
-yarn build
+npm run build
 node .output/server/index.mjs
 ```
 
@@ -161,7 +160,7 @@ and use Ctrl+C to stop it
 Start :
 
 ```sh
-yarn build
+npm run build
 pm2 start ecosystem.config.js
 ```
 

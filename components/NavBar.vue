@@ -12,7 +12,7 @@
         :model="links"
         @click="navigateTo('/mission')"
         class="p-button-text"
-      ></SplitButton>
+      />
       <Button
         class="p-button-text"
         label="A propos"
@@ -34,7 +34,6 @@ import SplitButton from 'primevue/splitbutton'
 import type { MenuItem } from 'primevue/menuitem'
 
 const { isAuthenticated } = useAuth0()
-const darkmode = ref(false)
 
 const links: MenuItem[] = [
   { label: 'Liste des missions', to: '/mission/' },

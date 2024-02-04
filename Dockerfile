@@ -6,10 +6,10 @@ WORKDIR /app
 
 # Install deps
 COPY ./package.json ./yarn.lock ./
-RUN yarn install --immutable --immutable-cache --check-cache
+RUN npm ci
 COPY . .
 
 # Build
-RUN yarn build
+RUN npm run build
 
 CMD node .output/server/index.mjs
