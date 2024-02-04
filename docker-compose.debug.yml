@@ -10,7 +10,7 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
-    command: "yarn dev"
+    command: "npm run dev"
     ports:
       - 9229:9229 # Debug port
       - 24678:24678 # HMR port
