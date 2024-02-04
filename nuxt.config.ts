@@ -29,10 +29,10 @@ export default defineNuxtConfig({
     IMAGE_DIR: resolve(process.env.IMAGES_DIR!),
 
     public: {
-      BASE_TITLE: 'GDC Toolbox',
-      AUTH0_DOMAIN: 'gdc.eu.auth0.com',
-      AUTH0_CLIENT_ID: '',
-      AUTH0_API_IDENTIFIER: '',
+      BASE_TITLE: process.env.BASE_TITLE || 'GDC Toolbox',
+      AUTH0_DOMAIN: process.env.AUTH0_DOMAIN || 'gdc.eu.auth0.com',
+      AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+      AUTH0_API_IDENTIFIER: process.env.AUTH0_API_IDENTIFIER,
     },
   },
 
