@@ -143,6 +143,7 @@ yarn install --frozen-lockfile
 #### With Node
 
 ```sh
+yarn build
 node .output/server/index.mjs
 ```
 
@@ -160,6 +161,7 @@ and use Ctrl+C to stop it
 Start :
 
 ```sh
+yarn build
 pm2 start ecosystem.config.js
 ```
 
