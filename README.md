@@ -115,18 +115,65 @@ At least :
 
 [node](https://nodejs.org/)
 
+and yarn :
+
+```sh
+npm i -g yarn
+```
+
 #### Clone git repository
 
+```sh
 git clone <https://github.com/Tanin69/gdc-toolbox>
+```
 
 #### Install modules
 
-In the server directory, run ```npm install```
+```sh
+yarn install --frozen-lockfile
+```
 
 #### Define environment variables
 
-* Copy ```.sample-env``` to ```.env```
+* Copy `.sample-env` to `.env`
 * Edit path with your configuration
+
+### Run the server
+
+#### With Node
+
+```sh
+node .output/server/index.mjs
+```
+
+and use Ctrl+C to stop it
+
+#### With PM2
+
+> [!NOTE]
+> [PM2](https://pm2.keymetrics.io) isn't included with GDCToolbox, you may want to install it with :
+>
+> ```sh
+> npm i -g pm2
+> ```
+
+Start :
+
+```sh
+pm2 start ecosystem.config.js
+```
+
+Restart :
+
+```sh
+pm2 restart GDCToolbox
+```
+
+Stop :
+
+```sh
+pm2 stop GDCToolbox
+```
 
 ###  Docker
 
@@ -148,7 +195,7 @@ git clone <https://github.com/Tanin69/gdc-toolbox>
 
 #### Define environment variables
 
-* Copy ```.sample-env``` to ```.env```
+* Copy `.sample-env` to `.env`
 * Edit path with your configuration
 
 ### Start
