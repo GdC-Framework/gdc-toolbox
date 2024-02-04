@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     shim: false,
   },
 
+  routeRules: {
+    '/logout': { redirect: '/' },
+  },
+
   runtimeConfig: {
     MONGO_URL: process.env.MONGO_URL,
     MONGO_DB_NAME: process.env.MONGO_DB_NAME || 'gdc',
