@@ -9,7 +9,7 @@ gdc-toolbox is a set of tools for arma gamers, mission makers and community mana
 * [Intented audience](#intented-audience)
 * [Features](#features)
 * [Installation](#installation)
-* [Frenquently asked questions](#frequently-asked-questions)
+* [Frequently asked questions](#frequently-asked-questions)
 * [Tech notes](#tech-notes)
 
 ## Intented audience
@@ -99,7 +99,7 @@ Embed API is used, notably for discord embed
 
 ## Installation
 
-### First installation
+### Prerequisites
 
 #### Download and install Mikero tools on your server
 
@@ -111,15 +111,8 @@ At least :
 * DeOgg
 * (maybe) DePbo
 
-#### Download and install node
-
-[node](https://nodejs.org/)
-
-and yarn :
-
-```sh
-npm i -g yarn
-```
+> [!TODO]
+> add a volume or something into docker-compose.yml
 
 #### Clone git repository
 
@@ -127,16 +120,23 @@ npm i -g yarn
 git clone <https://github.com/Tanin69/gdc-toolbox>
 ```
 
-#### Install modules
-
-```sh
-yarn install --frozen-lockfile
-```
-
 #### Define environment variables
 
 * Copy `.sample-env` to `.env`
-* Edit path with your configuration
+* Edit your configuration
+
+### Manual
+
+#### Download and install node
+
+[node](https://nodejs.org/)
+
+#### Install modules
+
+```sh
+npm i -g yarn
+yarn install --frozen-lockfile
+```
 
 ### Run the server
 
@@ -177,29 +177,6 @@ pm2 stop GDCToolbox
 
 ###  Docker
 
-#### Download and install Mikero tools on your server
-
-[Mikero tools](https://mikero.bytex.digital/Downloads).
-
-At least :
-
-* ExtractPbo
-* DeOgg
-* (maybe) DePbo
-
-**TODO: add a volume or somthing into docker-compose.yml**
-
-#### Clone git repository
-
-git clone <https://github.com/Tanin69/gdc-toolbox>
-
-#### Define environment variables
-
-* Copy `.sample-env` to `.env`
-* Edit path with your configuration
-
-### Start
-
 #### Production
 
 ```sh
@@ -210,7 +187,6 @@ docker compose up -d
 
 ```sh
 nvm use 18
-yarn
 docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
 ```
 
