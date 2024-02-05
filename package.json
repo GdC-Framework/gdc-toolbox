@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@types/bytes": "^3.1.4",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/sanitize-html": "^2.9.0",
+    "nuxt": "^3.10.0"
+  },
+  "dependencies": {
+    "@auth0/auth0-vue": "^2.3.3",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@nuxt/devtools": "^1.0.8",
+    "@vueuse/core": "^10.7.2",
+    "bytes": "^3.1.2",
+    "dayjs": "^1.11.10",
+    "fuse.js": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.1.0",
+    "mongodb": "^6.3.0",
+    "primeicons": "^6.0.1",
+    "primevue": "~3.46",
+    "sanitize-html": "^2.11.0",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0"
+  }
+}

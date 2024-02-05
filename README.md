@@ -9,7 +9,7 @@ gdc-toolbox is a set of tools for arma gamers, mission makers and community mana
 * [Intented audience](#intented-audience)
 * [Features](#features)
 * [Installation](#installation)
-* [Frenquently asked questions](#frequently-asked-questions)
+* [Frequently asked questions](#frequently-asked-questions)
 * [Tech notes](#tech-notes)
 
 ## Intented audience
@@ -25,7 +25,7 @@ Unless explicitly indicated, those features are provided by gdc-toolbox-api.
 ### Mission checking
 
 Checks the integrity of the mission .pbo file and compliance with certain rules. Each rule can be configured as blocking if it is not satisfied :
-  
+
 * file naming convention : the file name should follow a defined regexp (default: true)
 * pbo integrity : the file should be a real pbo and could be dpbo without any error (default: true)
 * briefing.sqf : a briefing.sqf should exist in the pbo file (default: true)
@@ -99,7 +99,7 @@ Embed API is used, notably for discord embed
 
 ## Installation
 
-### First installation
+### Prerequisites
 
 #### Download and install Mikero tools on your server
 
@@ -111,22 +111,92 @@ At least :
 * DeOgg
 * (maybe) DePbo
 
+> [!TODO]
+> add a volume or something into docker-compose.yml
+
+#### Clone git repository
+
+```sh
+git clone <https://github.com/Tanin69/gdc-toolbox>
+```
+
+#### Define environment variables
+
+* Copy `.sample-env` to `.env`
+* Edit your configuration
+
+### Manual
+
 #### Download and install node
 
 [node](https://nodejs.org/)
 
-#### Clone git repository
-
-git clone <https://github.com/Tanin69/gdc-toolbox>
-
 #### Install modules
 
-In the server directory, run ```npm install```
+```sh
+npm ci
+```
 
-#### Define environment variables
+### Run the server
 
-* Copy ```.sample-env``` to ```.env```
-* Edit path with your configuration
+#### With Node
+
+```sh
+npm run build
+node .output/server/index.mjs
+```
+
+and use Ctrl+C to stop it
+
+#### With PM2
+
+> [!NOTE]
+> [PM2](https://pm2.keymetrics.io) isn't included with GDCToolbox, you may want to install it with :
+>
+> ```sh
+> npm i -g pm2
+> ```
+
+Start :
+
+```sh
+npm run build
+pm2 start ecosystem.config.js
+```
+
+Restart :
+
+```sh
+pm2 restart GDCToolbox
+```
+
+Stop :
+
+```sh
+pm2 stop GDCToolbox
+```
+
+###  Docker
+
+#### Production
+
+```sh
+docker compose up -d
+```
+
+#### Dev
+
+```sh
+nvm use 18
+docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d
+```
+
+or use Makefile commands
+
+```sh
+make db
+make du
+```
 
 ## Frequently Asked Questions
 

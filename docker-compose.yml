@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+    volumes:
+      - ./docker/mongo:/data/db
+
+  gdctoolbox:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV
+      - NITRO_PORT
+      - BASE_TITLE
+      - AUTH0_DOMAIN
+      - AUTH0_CLIENT_ID
+      - AUTH0_API_IDENTIFIER
+      - MONGO_URL
+      - MONGO_DB_NAME
+      - MONGO_COLLECTION_NAME
+      - PBO_MANAGER
+      - TEMP_DIR
+      - MISSIONS_DIR
+      - IMAGES_DIR
+    depends_on:
+      - mongo
